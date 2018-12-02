@@ -8,6 +8,7 @@
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
     <div id="data"></div>
+    <button class="player" playerId="1234567890">Play Video</button>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
   <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
@@ -16,7 +17,14 @@
       var socket = io.connect('http://localhost:3000');
       socket.on('message', function (data) {
         console.log(data);
-	document.getElementById('data').innerHTML = data;
+        document.getElementById('data').innerHTML = data;
+      });
+      
+      $(".player").click(function(){
+        alert($(this).attr("playerId"));
+        $.get("http://localhost:3000/playVideo/" + $(this).attr("playerId"), (data) => {
+          console.log(data);
+        });  
       });
     });
   </script>
