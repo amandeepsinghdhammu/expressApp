@@ -1,7 +1,9 @@
 var express = require('express');
 var omx = require('node-omxplayer');
+//var omx = require('simpleomxcontrol');
 var fs = require('fs');
 var router = express.Router();
+var player;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -17,7 +19,7 @@ router.get('/playVideo/:videoId', function(req, res, next) {
     console.log("./public/videos/" + file + ".mp4");
     
     // Create an instance of the player with the source.
-    var player = omx("./public/videos/" + file + ".mp4");
+    player = omx("./public/videos/" + file + ".mp4");
     
     player.on("close", function (video) {
       console.log('Video ends here');
@@ -34,6 +36,21 @@ router.get('/playVideo/:videoId', function(req, res, next) {
     res.send(false);
   }
 
+});
+
+router.get('/stopVideo', function(req, res, next) {
+  var status = (player != undefined && player != false) ? player.running : false;
+  console.log('-------------------Lets stop the player---------------');
+  console.log(status);
+  if (status) {
+    // Stop Omxplayer
+    player.quit();
+    console.log("Omxplayer stoped");
+    res.send(true);
+  } else {
+    console.log('OMX player is not loaded.. so not stopped. :)');
+    res.send(false);
+  }
 });
 
 module.exports = router;

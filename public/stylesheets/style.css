@@ -6,3 +6,18 @@ body {
 a {
   color: #00B7FF;
 }
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 10%;
+}
+.footer button {
+  padding: 5px;
+  margin: 10px;
+}
