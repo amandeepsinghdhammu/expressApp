@@ -1,0 +1,51 @@
+<div class="img-video">
+  <div class="img">
+    <img src="<%= productJson[productId]["image"] %>" alt="" />
+  </div>
+  
+  <div class="video-section">
+    <img src="<%= productJson[productId]["videoThumb"] %>" alt="" class="startPlayer" video="<%= productId %>" />
+  </div>
+</div>
+
+<div class="content-section">
+  <h1 class="name f-bold"><%= productJson[productId]["name"].split(" ")[0] %> <span class="color_9d"><%= productJson[productId]["name"].split(" ")[1] %></span></h1>
+  <h2 class="modal"><%= productJson[productId]["sku"] %></h2>
+  <h3 class="price">₹ <%= productJson[productId]["price"] %></h3>
+  <div class="about">
+    <p class="color_9d f-bold p-heading">ABOUT THE RADO CENTRIX COLLECTION</p>
+    <p><%= productJson[productId]["description"] %></p>
+  </div>
+  <div class="specification">
+    <div class="s-holder small">
+      <h3>MOVEMENT</h3>
+      <ul>
+        <li><span class="color_99">Features</span><%= productJson[productId]["movement"]["date"] %></li>
+        <li><span class="color_99">Movement</span><%= productJson[productId]["movement"]["movement"] %></li>
+      </ul>
+    </div>
+    <div class="s-holder large">
+      <h3>Case</h3>
+      <ul>
+        <li><span class="color_99">Case Size</span><%= productJson[productId]["case"]["size"] %></li>
+        <li><span class="color_99">Case Material</span><%= productJson[productId]["case"]["material"] %></li>
+        <li><span class="color_99">Case Shape</span><%= productJson[productId]["case"]["shape"] %></li>
+        <li><span class="color_99">Glass Material</span><%= productJson[productId]["case"]["glassMaterial"] %></li>
+      </ul>
+    </div>
+    <div class="s-holder small">
+      <h3>Dial</h3>
+      <ul>
+        <li><span class="color_99">Dial Colour</span><%= productJson[productId]["dial"]["color"] %></li>
+      </ul>
+    </div>
+    <div class="s-holder large">
+      <h3>Other</h3>
+      <ul>
+        <li><span class="color_99">Gender</span><%= productJson[productId]["other"]["gender"] %></li>
+        <li><span class="color_99">Water Resistance (m)</span><%= productJson[productId]["other"]["waterResistance"] %></li>
+        <li><span class="color_99">Warranty Period</span><%= productJson[productId]["other"]["warrantyPeriod"] %></li>
+      </ul>
+    </div>
+  </div>
+</div>

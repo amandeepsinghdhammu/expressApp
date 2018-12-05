@@ -4,10 +4,127 @@ var omx = require('node-omxplayer');
 var fs = require('fs');
 var router = express.Router();
 var player;
+var productJson = {
+  1234567890 :  {
+     name : "RADO Centrix",
+     image : "/images/watch-img.jpg",
+     video : "/videos/1234567890.mp4",
+     videoThumb : "/images/thumb1.jpg",
+     sku : "R30934712",
+     price: "91,800",
+     description: "From day one Rado has turned visions into concrete realities. Pushing the boundaries of material technology and continually introducing the unexpected, Rado has gone from strength to strength in the field of fine Swiss timekeeping since 1957 and has produced one revolutionary watch after another.",
+     movement: {
+       features : "Date",
+       movement : "Quartz"
+     },
+     case : {
+       size : "38 mm",
+       material: "Steel",
+       shape: "Round",
+       glassMaterial: "Sapphire Crystal"
+     },
+     dial : {
+       color: "Black" 
+     },
+     other:{
+       gender: "Men",
+       waterResistance: "30",
+       warrantyPeriod: "2 Years"
+     }
+  },
+  7894561230 :  {
+     name : "CELLINI MOONPHASE",
+     image : "/images/m50535-0002.png",
+     video : "/videos/7894561230.mp4",
+     videoThumb : "/images/thumb2.jpg",  
+     sku : "R30934712",
+     price: "1,694,500",
+     description: "The Cellini collection is a contemporary celebration of classicism and the eternal elegance of traditional timepieces, combining the best of Rolex know-how and its high standards of perfection with an approach that heightens watchmaking heritage in its most timeless form.",
+     movement: {
+       features : "Date",
+       movement : "Perpetual, mechanical, self-winding"
+     },
+     case : {
+       size : "39 mm",
+       material: "Steel",
+       shape: "Round",
+       glassMaterial: "Sapphire Crystal"
+     },
+     dial : {
+       color: "White" 
+     },
+     other:{
+       gender: "Men",
+       waterResistance: "50",
+       warrantyPeriod: "2 Years"
+     }
+  },
+  1111111111 :  {
+     name : "DAY-DATE 40",
+     image : "/images/m228235-0002.png",
+     video : "/videos/1111111111.mp4",
+     videoThumb : "/images/thumb3.jpg",
+     sku : "R228235",
+     price: "2,378,500",
+     description: "The Rolex Day-Date made its debut in 1956. Available only in 18 ct gold or platinum, it was the first wristwatch chronometer to display the date and day of the week spelt out in full in a window on the dial. With the President bracelet, originally created specially for it, the Day-Date continues to be the watch par excellence of influential people.",
+     movement: {
+       features : "Date",
+       movement : "Perpetual, mechanical, self-winding"
+     },
+     case : {
+       size : "40 mm",
+       material: "Steel",
+       shape: "Round",
+       glassMaterial: "Sapphire Crystal"
+     },
+     dial : {
+       color: "Everose gold" 
+     },
+     other:{
+       gender: "Men",
+       waterResistance: "100",
+       warrantyPeriod: "2 Years"
+     }
+  },
+  2222222222 :  {
+     name : "PEARLMASTER 34",
+     image : "/images/m81318-0005.png",
+     video : "/videos/2222222222.mp4",
+     videoThumb : "/images/thumb3.jpg",
+     sku : "R81318",
+     price: "2,292,200",
+     description: "From day one Rado has turned visions into concrete realities. Pushing the boundaries of material technology and continually introducing the unexpected, Rado has gone from strength to strength in the field of fine Swiss timekeeping since 1957 and has produced one revolutionary watch after another.",
+     movement: {
+       features : "Date",
+       movement : "Perpetual, mechanical, self-winding"
+     },
+     case : {
+       size : "34 mm",
+       material: "Steel",
+       shape: "Round",
+       glassMaterial: "Sapphire Crystal"
+     },
+     dial : {
+       color: "Yellow gold and diamonds" 
+     },
+     other:{
+       gender: "Men",
+       waterResistance: "30",
+       warrantyPeriod: "2 Years"
+     }
+  }
+};
+    
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Ethos Home page' });
+});
+
+router.get('/singleProduct/:productId', function(req, res, next) {
+  var productId = req.params.productId;
+  res.render('singleProduct', { productJson: productJson, productId: productId });
 });
 
 router.get('/playVideo/:videoId', function(req, res, next) {

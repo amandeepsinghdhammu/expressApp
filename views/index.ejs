@@ -5,13 +5,19 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <div id="data"></div>
-    <button class="startPlayer" playerId="1234567890">Play Video</button>
-    
-    <div class="footer">
-      <button class="stopPlayer">Stop Video</button>
+    <div class="main-container">
+      <header class="logo-section">
+        <div class="wrapper">
+          <img src="/images/ethos-logo.svg" alt="logo" width="250px" />
+        </div>
+      </header>
+      <div class="wrapper">
+        <div id="initial-content">
+          <h1 style="text-align:center;">Place your watch on tray</h1>
+        </div>
+        <div id="watch-content" style="display:none;">
+        </div>  
+      </div>
     </div>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
@@ -20,22 +26,57 @@
     $(function () {
       var socket = io.connect('http://localhost:3000');
       socket.on('message', function (data) {
-        console.log(data);
-        document.getElementById('data').innerHTML = data;
+        var tag1 = data[0];
+        var tag2 = data[1];
+        
+        if(tag1 != "stop" || tag1 != "" && tag2 != "stop" || tag2 != "") {
+          // Stop any player
+          // Enable two products template
+        }
+        if(tag1 != "stop" || tag1 != "" && tag2 == "" || tag2 == "stop") {
+          // Stop any player
+          // Enable Single product template
+        }
+        if(tag1 == "" || tag1 == "stop" && tag2 != "stop" || tag2 != "") {
+          // Stop any player
+          // Enable Single product template
+        }
+        
+        if(tag1 == "" || tag1 == "stop" && tag2 == "stop" || tag2 == "") {
+          // Stop any player
+          // Show Initial text
+        }  
+        
+        //tag1 ID tag2 ""
+        //tag1 stop tag2 ""
+        //tag1 ID tag2 ID
+        //tag1 stop tag2 ID
+        //tag1 "" tag2 ID
+        //tag1 "" tag2 stop
+  
+        //document.getElementById('data').innerHTML = data;
       });
       
-      $(".startPlayer").click(function(){
-        alert($(this).attr("playerId"));
-        $.get("http://localhost:3000/playVideo/" + $(this).attr("playerId"), (data) => {
+      $('#watch-content').on('click', 'img.startPlayer', function(){
+        alert($(this).attr("video"));
+        $.get("/playVideo/" + $(this).attr("video"), (data) => {
           console.log(data);
         });  
       });
       
-      $(".stopPlayer").click(function(){
-        $.get("http://localhost:3000/stopVideo/", (data) => {
+      $(".stopPlayer").on('click', function(){
+        $.get("/stopVideo/", (data) => {
           console.log(data);
         });
       });
+      
+      setTimeout(function(){
+        $.get("/singleProduct/7894561230", (data) => {
+          $("#watch-content").html(data);
+          $("#initial-content").hide();
+          $("#watch-content").show();
+        });
+      }, 3000);
     });
   </script>
 </script>
