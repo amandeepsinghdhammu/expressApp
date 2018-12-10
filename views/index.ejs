@@ -20,8 +20,8 @@
       </div>
     </div>
   </body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
-  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  <script src="/javascripts/socket.io.js"></script>
+  <script src="/javascripts/jquery-3.3.1.min.js"></script>
   <script>
     $(function () {
       var socket = io.connect('http://localhost:3000');
@@ -32,19 +32,57 @@
         if(tag1 != "stop" || tag1 != "" && tag2 != "stop" || tag2 != "") {
           // Stop any player
           // Enable two products template
+
+          $.get("/stopVideo", (data) => {
+            console.log("Player Stopped:" + data);
+
+            $.get("/twoProduct/" + tag1 + "/" + tag2, (data) => {
+              $("#watch-content").html(data);
+              $("#initial-content").hide();
+              $("#watch-content").show();
+            });
+          });
         }
         if(tag1 != "stop" || tag1 != "" && tag2 == "" || tag2 == "stop") {
           // Stop any player
           // Enable Single product template
+          $.get("/stopVideo", (data) => {
+            console.log("Player Stopped:" + data);
+
+            $.get("/singleProduct/" + tag1, (data) => {
+              $("#watch-content").html(data);
+              $("#initial-content").hide();
+              $("#watch-content").show();
+            });
+          });
         }
         if(tag1 == "" || tag1 == "stop" && tag2 != "stop" || tag2 != "") {
           // Stop any player
           // Enable Single product template
+
+          $.get("/stopVideo", (data) => {
+            console.log("Player Stopped:" + data);
+
+            $.get("/singleProduct/" + tag1, (data) => {
+              $("#watch-content").html(data);
+              $("#initial-content").hide();
+              $("#watch-content").show();
+            });
+          });
+
         }
         
         if(tag1 == "" || tag1 == "stop" && tag2 == "stop" || tag2 == "") {
           // Stop any player
           // Show Initial text
+
+          $.get("/stopVideo", (data) => {
+            console.log("Player Stopped:" + data);
+            $("#watch-content").html("");
+            $("#watch-content").hide();
+            $("#initial-content").show();
+          });
+
         }  
         
         //tag1 ID tag2 ""
