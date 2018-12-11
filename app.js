@@ -52,7 +52,7 @@ io.on('connection', function(socket){
 
   ls.stdout.on('data', function (gdata) {
     //socket.emit('message', gdata.toString());
-    socket.emit('message', ['1234567890','0123456789']);
+    socket.emit('message', ['1234567890','7894561230']);
   });
   socket.on('disconnect', function(){
     console.log('user disconnected');

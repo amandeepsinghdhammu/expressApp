@@ -127,6 +127,12 @@ router.get('/singleProduct/:productId', function(req, res, next) {
   res.render('singleProduct', { productJson: productJson, productId: productId });
 });
 
+router.get('/twoProduct/:productId1/:productId2', function(req, res, next) {
+  var productId1 = req.params.productId1;
+  var productId2 = req.params.productId2;
+  res.render('twoProduct', { productJson: productJson, productId1: productId1, productId2: productId2 });
+});
+
 router.get('/playVideo/:videoId', function(req, res, next) {
   console.log(req.params);
   var file = req.params.videoId;

@@ -24,15 +24,16 @@
   <script src="/javascripts/jquery-3.3.1.min.js"></script>
   <script>
     $(function () {
-      var socket = io.connect('http://localhost:3000');
+var socket = io.connect('https://amandeep.serveo.net');      
+//var socket = io.connect('http://localhost:3000');
       socket.on('message', function (data) {
         var tag1 = data[0];
         var tag2 = data[1];
         
-        if(tag1 != "stop" || tag1 != "" && tag2 != "stop" || tag2 != "") {
+        if((tag1 != "stop" || tag1 != "") && (tag2 != "stop" || tag2 != "")) {
           // Stop any player
           // Enable two products template
-
+console.log("Case1");
           $.get("/stopVideo", (data) => {
             console.log("Player Stopped:" + data);
 
@@ -43,9 +44,10 @@
             });
           });
         }
-        if(tag1 != "stop" || tag1 != "" && tag2 == "" || tag2 == "stop") {
+        if((tag1 != "stop" || tag1 != "") && (tag2 == "" || tag2 == "stop")) {
           // Stop any player
           // Enable Single product template
+          console.log("Case2");
           $.get("/stopVideo", (data) => {
             console.log("Player Stopped:" + data);
 
@@ -56,10 +58,10 @@
             });
           });
         }
-        if(tag1 == "" || tag1 == "stop" && tag2 != "stop" || tag2 != "") {
+        if((tag1 == "" || tag1 == "stop") && (tag2 != "stop" || tag2 != "")) {
           // Stop any player
           // Enable Single product template
-
+console.log("Case3");
           $.get("/stopVideo", (data) => {
             console.log("Player Stopped:" + data);
 
@@ -72,10 +74,10 @@
 
         }
         
-        if(tag1 == "" || tag1 == "stop" && tag2 == "stop" || tag2 == "") {
+        if((tag1 == "" || tag1 == "stop") && (tag2 == "stop" || tag2 == "")) {
           // Stop any player
           // Show Initial text
-
+console.log("Case4");
           $.get("/stopVideo", (data) => {
             console.log("Player Stopped:" + data);
             $("#watch-content").html("");
@@ -108,13 +110,13 @@
         });
       });
       
-      setTimeout(function(){
+      /*setTimeout(function(){
         $.get("/singleProduct/7894561230", (data) => {
           $("#watch-content").html(data);
           $("#initial-content").hide();
           $("#watch-content").show();
         });
-      }, 3000);
+      }, 3000);*/
     });
   </script>
 </script>
