@@ -24,8 +24,7 @@
   <script src="/javascripts/jquery-3.3.1.min.js"></script>
   <script>
     $(function () {
-var socket = io.connect('https://amandeep.serveo.net');      
-//var socket = io.connect('http://localhost:3000');
+var socket = io.connect('http://localhost:3000');
       socket.on('message', function (data) {
         var tag1 = data[0];
         var tag2 = data[1];
