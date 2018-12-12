@@ -24,6 +24,7 @@
   <script src="/javascripts/jquery-3.3.1.min.js"></script>
   <script>
     $(function () {
+//var socket = io.connect('https://amandeep.serveo.net');
 var socket = io.connect('http://localhost:3000');
       socket.on('message', function (data) {
         var tag1 = data[0];
@@ -33,10 +34,10 @@ var socket = io.connect('http://localhost:3000');
           // Stop any player
           // Enable two products template
 console.log("Case1");
-          $.get("/stopVideo", (data) => {
+          $.get("/stopVideo", function(data)  {
             console.log("Player Stopped:" + data);
 
-            $.get("/twoProduct/" + tag1 + "/" + tag2, (data) => {
+            $.get("/twoProduct/" + tag1 + "/" + tag2, function(data)  {
               $("#watch-content").html(data);
               $("#initial-content").hide();
               $("#watch-content").show();
@@ -47,10 +48,10 @@ console.log("Case1");
           // Stop any player
           // Enable Single product template
           console.log("Case2");
-          $.get("/stopVideo", (data) => {
+          $.get("/stopVideo", function(data)  {
             console.log("Player Stopped:" + data);
 
-            $.get("/singleProduct/" + tag1, (data) => {
+            $.get("/singleProduct/" + tag1, function(data)  {
               $("#watch-content").html(data);
               $("#initial-content").hide();
               $("#watch-content").show();
@@ -61,10 +62,10 @@ console.log("Case1");
           // Stop any player
           // Enable Single product template
 console.log("Case3");
-          $.get("/stopVideo", (data) => {
+          $.get("/stopVideo", function(data)  {
             console.log("Player Stopped:" + data);
 
-            $.get("/singleProduct/" + tag1, (data) => {
+            $.get("/singleProduct/" + tag1, function(data)  {
               $("#watch-content").html(data);
               $("#initial-content").hide();
               $("#watch-content").show();
@@ -77,7 +78,7 @@ console.log("Case3");
           // Stop any player
           // Show Initial text
 console.log("Case4");
-          $.get("/stopVideo", (data) => {
+          $.get("/stopVideo", function(data)  {
             console.log("Player Stopped:" + data);
             $("#watch-content").html("");
             $("#watch-content").hide();
@@ -98,13 +99,13 @@ console.log("Case4");
       
       $('#watch-content').on('click', 'img.startPlayer', function(){
         alert($(this).attr("video"));
-        $.get("/playVideo/" + $(this).attr("video"), (data) => {
+        $.get("/playVideo/" + $(this).attr("video"), function(data)  {
           console.log(data);
         });  
       });
       
       $(".stopPlayer").on('click', function(){
-        $.get("/stopVideo/", (data) => {
+        $.get("/stopVideo/", function(data)  {
           console.log(data);
         });
       });
