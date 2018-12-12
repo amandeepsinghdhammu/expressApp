@@ -6,8 +6,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var spawn = require('child_process').spawn,
-    ls    = spawn('python', ['test.py']);
-
+    ls    = spawn('python', ['/home/pi/NRF24/NRF24l01/nrf.py']);
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -51,8 +50,14 @@ io.on('connection', function(socket){
   console.log('a user connected');
 
   ls.stdout.on('data', function (gdata) {
-    //socket.emit('message', gdata.toString());
-    socket.emit('message', ['1234567890','7894561230']);
+    console.log(gdata.toString().trim().split("-"));	
+    
+    socket.emit('message', gdata.toString().trim().split("-"));
+    //socket.emit('message', ['1234567890','7894561230']);
+  });
+
+  ls.stderr.on('data', function(err) {
+	//console.log(err);
   });
   socket.on('disconnect', function(){
     console.log('user disconnected');
