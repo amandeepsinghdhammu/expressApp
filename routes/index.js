@@ -133,19 +133,27 @@ router.get('/twoProduct/:productId1/:productId2', function(req, res, next) {
   res.render('twoProduct', { productJson: productJson, productId1: productId1, productId2: productId2 });
 });
 
-router.get('/playVideo/:videoId', function(req, res, next) {
+router.get('/playVideo/:videoId/:width/:height', function(req, res, next) {
   console.log(req.params);
   var file = req.params.videoId;
+  var y2 = req.params.height;
+  var x2 = req.params.width;
+  var x1 = 0;
+  var y1 = 0;
+  
+  var percentage = 10;
+  y2 = y2 - (y2 * percentage / 100); // 68
   
   // Check If file exist=
   if (fs.existsSync("./public/videos/" + file + ".mp4")) {
     console.log("./public/videos/" + file + ".mp4");
     
     // Create an instance of the player with the source.
-    player = omx("./public/videos/" + file + ".mp4");
+    player = omx("./public/videos/" + file + ".mp4", "hdmi", false, x1 + ' ' + y1 + ' ' + x2 + ' ' + y2, 'letterbox');
     
     player.on("close", function (video) {
       console.log('Video ends here');
+      req.app.io.emit('player', 'stop');
     });
     player.on("error", function (err) {
       console.log('Video error', err);

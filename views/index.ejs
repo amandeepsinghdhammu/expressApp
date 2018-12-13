@@ -18,6 +18,9 @@
         <div id="watch-content" style="display:none;">
         </div>  
       </div>
+      <div class="footer" style="display:none;position:absolute;bottom:0px;background:#000;height:10%; width:100%; text-align:center;">
+        <button id="stopPlayer" style="margin-top:30px; padding:5px;">Close</button>
+      </div>
     </div>
   </body>
   <script src="/javascripts/socket.io.js"></script>
@@ -26,6 +29,11 @@
     $(function () {
 //var socket = io.connect('https://amandeep.serveo.net');
 var socket = io.connect('http://localhost:3000');
+      socket.on('player', function (data) {
+        if(data == "stop") {
+          showContentAfterVideo();
+        }
+      });  
       socket.on('message', function (data) {
         var tag1 = data[0];
         var tag2 = data[1];
@@ -98,17 +106,35 @@ console.log("Case4");
       });
       
       $('#watch-content').on('click', 'img.startPlayer', function(){
-        alert($(this).attr("video"));
-        $.get("/playVideo/" + $(this).attr("video"), function(data)  {
+        var height = $(window).height();
+        var width = $(window).width();
+        //alert(width + "==" + height);
+        hideContentBeforeVideo();
+        $.get("/playVideo/" + $(this).attr("video") + "/" + width + "/" + height, (data) => {
           console.log(data);
         });  
       });
       
-      $(".stopPlayer").on('click', function(){
-        $.get("/stopVideo/", function(data)  {
+      $("#stopPlayer").on('click', function(){
+        showContentAfterVideo();
+        $.get("/stopVideo/", (data) => {
           console.log(data);
         });
       });
+      
+      function hideContentBeforeVideo() {
+        $(".footer").show();
+        $("body").css("background", "#000");
+        $(".logo-section").hide();
+        $(".wrapper").hide();
+      }
+      
+      function showContentAfterVideo(){
+        $(".footer").hide();
+        $("body").css("background", "#fff");
+        $(".logo-section").show();
+        $(".wrapper").show();
+      }
       
       /*setTimeout(function(){
         $.get("/singleProduct/7894561230", (data) => {

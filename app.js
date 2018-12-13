@@ -48,7 +48,7 @@ app.use(function(err, req, res, next) {
 
 io.on('connection', function(socket){
   console.log('a user connected');
-
+  //socket.emit('message', ['1234567890','7894561230']);
   ls.stdout.on('data', function (gdata) {
     console.log(gdata.toString().trim().split("-"));	
     
