@@ -5,7 +5,7 @@ var fs = require('fs');
 var router = express.Router();
 var player;
 var productJson = {
-  1234567890 :  {
+  2447508096 :  {
      name : "RADO Centrix",
      image : "/images/watch-img.jpg",
      video : "/videos/1234567890.mp4",
@@ -32,7 +32,7 @@ var productJson = {
        warrantyPeriod: "2 Years"
      }
   },
-  7894561230 :  {
+  303848577 :  {
      name : "CELLINI MOONPHASE",
      image : "/images/m50535-0002.png",
      video : "/videos/7894561230.mp4",
@@ -59,7 +59,7 @@ var productJson = {
        warrantyPeriod: "2 Years"
      }
   },
-  1111111111 :  {
+  2462992513 :  {
      name : "DAY-DATE 40",
      image : "/images/m228235-0002.png",
      video : "/videos/1111111111.mp4",
@@ -86,7 +86,7 @@ var productJson = {
        warrantyPeriod: "2 Years"
      }
   },
-  2222222222 :  {
+  2462992516 :  {
      name : "PEARLMASTER 34",
      image : "/images/m81318-0005.png",
      video : "/videos/2222222222.mp4",
@@ -124,12 +124,26 @@ router.get('/', function(req, res, next) {
 
 router.get('/singleProduct/:productId', function(req, res, next) {
   var productId = req.params.productId;
+  if(productJson[productId] == undefined){
+    return false;
+  }	
   res.render('singleProduct', { productJson: productJson, productId: productId });
 });
 
 router.get('/twoProduct/:productId1/:productId2', function(req, res, next) {
   var productId1 = req.params.productId1;
   var productId2 = req.params.productId2;
+  if(productJson[productId1] == undefined && productJson[productId2] == undefined){
+    return false;
+  }
+  if(productJson[productId1] != undefined && productJson[productId2] == undefined){
+    res.render('singleProduct', { productJson: productJson, productId: productId1 });
+    return;
+  }
+  if(productJson[productId1] == undefined && productJson[productId2] != undefined){
+    res.render('singleProduct', { productJson: productJson, productId: productId2 });
+    return;
+  }	
   res.render('twoProduct', { productJson: productJson, productId1: productId1, productId2: productId2 });
 });
 
