@@ -35,74 +35,56 @@ var socket = io.connect('http://localhost:3000');
         }
       });  
       socket.on('message', function (data) {
-        var tag1 = data[0];
-        var tag2 = data[1];
-        
-        if((tag1 != "stop" || tag1 != "") && (tag2 != "stop" || tag2 != "")) {
-          // Stop any player
-          // Enable two products template
-console.log("Case1");
-          $.get("/stopVideo", function(data)  {
+        var tag1 = data[0] == ""? "stop" : data[0];
+        var tag2 = data[1] == ""? "stop" : data[1];;
+        console.log("tag1=" + tag1 + "=====tag2=" + tag2);
+	
+	if((tag1 == "stop") && (tag2 == "stop")){
+	  console.log("Case1");
+	  $.get("/stopVideo", function(data)  {
             console.log("Player Stopped:" + data);
+            $("#watch-content").html("");
+            $("#watch-content").hide();
+            $("#initial-content").show();
+          });
+	}
 
+	if((tag1 == "stop") && (tag2 != "stop")){
+	  // Stop any player
+          // Enable Single product template
+          console.log("Case2");
+          $.get("/stopVideo", function(data)  {
+            $.get("/singleProduct/" + tag2, function(data)  {
+              $("#watch-content").html(data);
+              $("#initial-content").hide();
+              $("#watch-content").show();
+            });
+          });
+	}
+
+	if((tag1 != "stop") && (tag2 == "stop")){
+	  // Stop any player
+          // Enable Single product template
+          console.log("Case3");
+          $.get("/stopVideo", function(data)  {
+            $.get("/singleProduct/" + tag1, function(data)  {
+              $("#watch-content").html(data);
+              $("#initial-content").hide();
+              $("#watch-content").show();
+            });
+          });
+	}
+
+	if((tag1 != "stop") && (tag2 != "stop")){
+	  console.log("Case4");
+	  $.get("/stopVideo", function(data)  {
             $.get("/twoProduct/" + tag1 + "/" + tag2, function(data)  {
               $("#watch-content").html(data);
               $("#initial-content").hide();
               $("#watch-content").show();
             });
           });
-        }
-        if((tag1 != "stop" || tag1 != "") && (tag2 == "" || tag2 == "stop")) {
-          // Stop any player
-          // Enable Single product template
-          console.log("Case2");
-          $.get("/stopVideo", function(data)  {
-            console.log("Player Stopped:" + data);
-
-            $.get("/singleProduct/" + tag1, function(data)  {
-              $("#watch-content").html(data);
-              $("#initial-content").hide();
-              $("#watch-content").show();
-            });
-          });
-        }
-        if((tag1 == "" || tag1 == "stop") && (tag2 != "stop" || tag2 != "")) {
-          // Stop any player
-          // Enable Single product template
-console.log("Case3");
-          $.get("/stopVideo", function(data)  {
-            console.log("Player Stopped:" + data);
-
-            $.get("/singleProduct/" + tag1, function(data)  {
-              $("#watch-content").html(data);
-              $("#initial-content").hide();
-              $("#watch-content").show();
-            });
-          });
-
-        }
-        
-        if((tag1 == "" || tag1 == "stop") && (tag2 == "stop" || tag2 == "")) {
-          // Stop any player
-          // Show Initial text
-console.log("Case4");
-          $.get("/stopVideo", function(data)  {
-            console.log("Player Stopped:" + data);
-            $("#watch-content").html("");
-            $("#watch-content").hide();
-            $("#initial-content").show();
-          });
-
-        }  
-        
-        //tag1 ID tag2 ""
-        //tag1 stop tag2 ""
-        //tag1 ID tag2 ID
-        //tag1 stop tag2 ID
-        //tag1 "" tag2 ID
-        //tag1 "" tag2 stop
-  
-        //document.getElementById('data').innerHTML = data;
+	}
       });
       
       $('#watch-content').on('click', 'img.startPlayer', function(){
@@ -110,14 +92,14 @@ console.log("Case4");
         var width = $(window).width();
         //alert(width + "==" + height);
         hideContentBeforeVideo();
-        $.get("/playVideo/" + $(this).attr("video") + "/" + width + "/" + height, (data) => {
+        $.get("/playVideo/" + $(this).attr("video") + "/" + width + "/" + height, function(data) {
           console.log(data);
         });  
       });
       
       $("#stopPlayer").on('click', function(){
         showContentAfterVideo();
-        $.get("/stopVideo/", (data) => {
+        $.get("/stopVideo/", function(data) {
           console.log(data);
         });
       });
@@ -137,7 +119,7 @@ console.log("Case4");
       }
       
       /*setTimeout(function(){
-        $.get("/singleProduct/7894561230", (data) => {
+        $.get("/singleProduct/7894561230", function(data) {
           $("#watch-content").html(data);
           $("#initial-content").hide();
           $("#watch-content").show();
