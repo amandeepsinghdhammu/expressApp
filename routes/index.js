@@ -7,9 +7,9 @@ var player;
 var productJson = {
   2447508096 :  {
      name : "RADO Centrix",
-     image : "/images/watch-img.jpg",
-     video : "/videos/1234567890.mp4",
-     videoThumb : "/images/thumb1.jpg",
+     image : "watch-img.jpg",
+     video : "Rado-Centrix-Men's-watch-with-8-diamonds.mp4",
+     videoThumb : "thumb1.jpg",
      sku : "R30934712",
      price: "91,800",
      description: "From day one Rado has turned visions into concrete realities. Pushing the boundaries of material technology and continually introducing the unexpected, Rado has gone from strength to strength in the field of fine Swiss timekeeping since 1957 and has produced one revolutionary watch after another.",
@@ -33,79 +33,79 @@ var productJson = {
      }
   },
   303848577 :  {
-     name : "CELLINI MOONPHASE",
-     image : "/images/m50535-0002.png",
-     video : "/videos/7894561230.mp4",
-     videoThumb : "/images/thumb2.jpg",  
-     sku : "R30934712",
-     price: "1,694,500",
-     description: "The Cellini collection is a contemporary celebration of classicism and the eternal elegance of traditional timepieces, combining the best of Rolex know-how and its high standards of perfection with an approach that heightens watchmaking heritage in its most timeless form.",
+     name : "OMEGA De Ville Prestige",
+     image : "omega-prestige.jpg",
+     video : "OMEGA-from-a-movement-to-a-brand-name.mp4",
+     videoThumb : "maxresdefault.jpg",  
+     sku : "424.55.37.20.52.002",
+     price: "18,06,600",
+     description: "Since its launch in 1967, the De Ville Collection by Omega has been synonymous with modern elegance and fashion. This collection has been a major example of the avant-garde watch making technology used by the brand. The first watch to be equipped with the exclusive Omega Co-Axial escapement in 1999 was a De Ville.",
      movement: {
        features : "Date",
-       movement : "Perpetual, mechanical, self-winding"
+       movement : "Automatic"
      },
      case : {
-       size : "39 mm",
-       material: "Steel",
+       size : "36.8 mm",
+       material: "Yellow Gold",
        shape: "Round",
        glassMaterial: "Sapphire Crystal"
      },
      dial : {
-       color: "White" 
+       color: "Silver" 
      },
      other:{
        gender: "Men",
-       waterResistance: "50",
-       warrantyPeriod: "2 Years"
+       waterResistance: "30",
+       warrantyPeriod: "5 Years"
      }
   },
   2462992513 :  {
-     name : "DAY-DATE 40",
-     image : "/images/m228235-0002.png",
-     video : "/videos/1111111111.mp4",
-     videoThumb : "/images/thumb3.jpg",
-     sku : "R228235",
-     price: "2,378,500",
-     description: "The Rolex Day-Date made its debut in 1956. Available only in 18 ct gold or platinum, it was the first wristwatch chronometer to display the date and day of the week spelt out in full in a window on the dial. With the President bracelet, originally created specially for it, the Day-Date continues to be the watch par excellence of influential people.",
+     name : "OMEGA De Ville Prestige",
+     image : "omega.jpg",
+     video : "OMEGA-from-a-movement-to-a-brand-name.mp4",
+     videoThumb : "maxresdefault.jpg",
+     sku : "424.13.33.20.53.001",
+     price: "2,11,500",
+     description: "Since its launch in 1967, the De Ville Collection by Omega has been synonymous with modern elegance and fashion. This collection has been a major example of the avant-garde watch making technology used by the brand. The first watch to be equipped with the exclusive Omega Co-Axial escapement in 1999 was a De Ville.",
      movement: {
        features : "Date",
-       movement : "Perpetual, mechanical, self-winding"
+       movement : "Automatic"
      },
      case : {
-       size : "40 mm",
+       size : "32.7 mm",
        material: "Steel",
        shape: "Round",
        glassMaterial: "Sapphire Crystal"
      },
      dial : {
-       color: "Everose gold" 
+       color: "Blue" 
      },
      other:{
-       gender: "Men",
-       waterResistance: "100",
-       warrantyPeriod: "2 Years"
+       gender: "Women",
+       waterResistance: "30",
+       warrantyPeriod: "5 Years"
      }
   },
   2462992516 :  {
-     name : "PEARLMASTER 34",
-     image : "/images/m81318-0005.png",
-     video : "/videos/2222222222.mp4",
-     videoThumb : "/images/thumb3.jpg",
-     sku : "R81318",
-     price: "2,292,200",
-     description: "From day one Rado has turned visions into concrete realities. Pushing the boundaries of material technology and continually introducing the unexpected, Rado has gone from strength to strength in the field of fine Swiss timekeeping since 1957 and has produced one revolutionary watch after another.",
+     name : "ORIS Aviation Artelier Calibre 111",
+     image : "oris.jpg",
+     video : "Oris-110th-Year-Celebration.mp4",
+     videoThumb : "oris-thumb.jpg",
+     sku : "01 111 7700 4065-SET 1 23 87FC",
+     price: "4,16,900",
+     description: "The machinery inside a watch that keeps things ticking is called the movement or a calibre. A synonym of size, the word ‘calibre’, first used as a watchmaking term in 1715, originally referred to the build of a watch movement—the layout, dimensions, shape and size of the wheels, barrels, bridges and so on.",
      movement: {
-       features : "Date",
-       movement : "Perpetual, mechanical, self-winding"
+       features : "Date, Power Reserve Indicator, Small Seconds",
+       movement : "Manual Winding"
      },
      case : {
-       size : "34 mm",
+       size : "43 mm",
        material: "Steel",
        shape: "Round",
        glassMaterial: "Sapphire Crystal"
      },
      dial : {
-       color: "Yellow gold and diamonds" 
+       color: "Blue" 
      },
      other:{
        gender: "Men",
@@ -147,9 +147,9 @@ router.get('/twoProduct/:productId1/:productId2', function(req, res, next) {
   res.render('twoProduct', { productJson: productJson, productId1: productId1, productId2: productId2 });
 });
 
-router.get('/playVideo/:videoId/:width/:height', function(req, res, next) {
+router.get('/playVideo/:videoName/:width/:height', function(req, res, next) {
   console.log(req.params);
-  var file = req.params.videoId;
+  var file = req.params.videoName;
   var y2 = 1080;//req.params.height;
   var x2 = 1920; //req.params.width;
   var x1 = 0;
@@ -159,11 +159,11 @@ router.get('/playVideo/:videoId/:width/:height', function(req, res, next) {
   y2 = y2 - (y2 * percentage / 100); // 68
   
   // Check If file exist=
-  if (fs.existsSync("./public/videos/" + file + ".mp4")) {
-    console.log("./public/videos/" + file + ".mp4");
+  if (fs.existsSync("./public/videos/" + file)) {
+    console.log("./public/videos/" + file);
     
     // Create an instance of the player with the source.
-    player = omx("./public/videos/" + file + ".mp4", "hdmi", false, x1 + ' ' + y1 + ' ' + x2 + ' ' + y2, 'letterbox');
+    player = omx("./public/videos/" + file, "hdmi", false, x1 + ' ' + y1 + ' ' + x2 + ' ' + y2, 'letterbox');
     
     player.on("close", function (video) {
       console.log('Video ends here');

@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <title><%= title %></title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
@@ -13,13 +17,65 @@
       </header>
       <div class="wrapper">
         <div id="initial-content">
-          <h1 style="text-align:center;">Place your watch on tray</h1>
-        </div>
+          <div class="full-content">
+            <p>Welcome to Ethos, We established in 2003, Ethos Watch Boutiques, India's largest luxury watch retailer started out with a single store in Chandigarh. Today, we have 44 stores across 16 cities in India, including three duty free stores at the Delhi, Mumbai and Bengaluru international airports. Spread across the major metros, our boutiques house the finest selection from over 60 of the world’s top luxury watch brands.</p>
+          </div>
+          
+          <div class="half-content">
+            <div class="store-image">
+              <div class="img">
+                <img src="/images/store-ahm.jpg" alt="">
+              </div>
+            </div>
+            
+            <div class="content-section">
+              <p class="color_9d f-bold p-heading">ETHOS WATCH BOUTIQUES</p>
+              <p>G8 &amp; G9, Ground Floor, <br>Ahmedabad One Mall, Near Vastrapur Lake, Vastrapur,<br> Ahmedabad - 380054, +91-79-40327655 </p>
+              <div class="brand-available">
+                <p class="fontBold"><strong>Brands Available</strong></p>
+                <ul class="watch-brands">
+                <li> Omega </li>
+                <li> Longines </li>
+                <li> Rado </li>
+                <li> Tag Heuer </li>
+                <li> Tissot </li>
+                <li> Movado </li>
+                <li>Victorinox </li>
+                <li>Citizen </li>
+                <li> Seiko </li>
+                <li> Sevenfriday </li>
+                <li> Frederique Constant </li>
+                <li> Raymond Weil </li>
+                <li> Montblanc </li>
+                </ul>
+              </div>
+              
+              <div class="store-head">
+                <p class="fontBold"><strong>Meet the store Head</strong></p>
+                
+                <div class="user_info">
+                  <div class="user_picWrap">
+                    <span class="user_pic">
+                        <img class="store-head-pic rounded-circle" src="/images/1495773117-EAL1.jpg">
+                    </span>
+                  </div>
+                  <div class="col">
+                    <span>Jignesh Patel</span>
+                    <p>+91 9825881573</p>
+                    <span><a class="color_40" href="mailto:jignesh.patel@ethoswatches.com?subject=Schedule%20An%20Appointment">jignesh.patel@ethoswatches.com</a></span>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+          </div>
+        </div>  
         <div id="watch-content" style="display:none;">
         </div>  
       </div>
       <div class="footer" style="display:none;position:absolute;bottom:0px;background:#000;height:10%; width:100%; text-align:center;">
-        <button id="stopPlayer" style="margin-top:30px; padding:5px;">Close</button>
+        <button id="stopPlayer" style="margin-top:30px; padding:5px; cursor:pointer;">Close</button>
       </div>
     </div>
   </body>
@@ -39,18 +95,18 @@ var socket = io.connect('http://localhost:3000');
         var tag2 = data[1] == ""? "stop" : data[1];;
         console.log("tag1=" + tag1 + "=====tag2=" + tag2);
 	
-	if((tag1 == "stop") && (tag2 == "stop")){
-	  console.log("Case1");
-	  $.get("/stopVideo", function(data)  {
+        if((tag1 == "stop") && (tag2 == "stop")){
+          console.log("Case1");
+          $.get("/stopVideo", function(data)  {
             console.log("Player Stopped:" + data);
             $("#watch-content").html("");
             $("#watch-content").hide();
             $("#initial-content").show();
           });
-	}
+        }
 
-	if((tag1 == "stop") && (tag2 != "stop")){
-	  // Stop any player
+        if((tag1 == "stop") && (tag2 != "stop")){
+          // Stop any player
           // Enable Single product template
           console.log("Case2");
           $.get("/stopVideo", function(data)  {
@@ -60,10 +116,10 @@ var socket = io.connect('http://localhost:3000');
               $("#watch-content").show();
             });
           });
-	}
+        }
 
-	if((tag1 != "stop") && (tag2 == "stop")){
-	  // Stop any player
+        if((tag1 != "stop") && (tag2 == "stop")){
+          // Stop any player
           // Enable Single product template
           console.log("Case3");
           $.get("/stopVideo", function(data)  {
@@ -73,26 +129,28 @@ var socket = io.connect('http://localhost:3000');
               $("#watch-content").show();
             });
           });
-	}
+        }
 
-	if((tag1 != "stop") && (tag2 != "stop")){
-	  console.log("Case4");
-	  $.get("/stopVideo", function(data)  {
+        if((tag1 != "stop") && (tag2 != "stop")){
+          console.log("Case4");
+          $.get("/stopVideo", function(data)  {
+            console.log("Case41");
             $.get("/twoProduct/" + tag1 + "/" + tag2, function(data)  {
+              console.log("Case4");
               $("#watch-content").html(data);
               $("#initial-content").hide();
               $("#watch-content").show();
             });
           });
-	}
+        }
       });
       
-      $('#watch-content').on('click', 'img.startPlayer', function(){
+      $('#watch-content').on('click', 'a.startPlayer', function(){
         var height = $(window).height();
         var width = $(window).width();
         //alert(width + "==" + height);
         hideContentBeforeVideo();
-        $.get("/playVideo/" + $(this).attr("video") + "/" + width + "/" + height, function(data) {
+        $.get("/playVideo/" + $(this).attr("videoName") + "/" + width + "/" + height, function(data) {
           console.log(data);
         });  
       });
@@ -119,7 +177,7 @@ var socket = io.connect('http://localhost:3000');
       }
       
       /*setTimeout(function(){
-        $.get("/singleProduct/7894561230", function(data) {
+        $.get("/singleProduct/2462992516", function(data) {
           $("#watch-content").html(data);
           $("#initial-content").hide();
           $("#watch-content").show();

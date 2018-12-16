@@ -1,19 +1,20 @@
 <div class="img-video">
   <div class="img">
-    <img src="<%= productJson[productId]["image"] %>" alt="" />
+    <img src="/images/<%= productJson[productId]["image"] %>" alt="" />
   </div>
   
   <div class="video-section">
-    <img src="<%= productJson[productId]["videoThumb"] %>" alt="" class="startPlayer" video="<%= productId %>" />
+    <img src="/images/<%= productJson[productId]["videoThumb"] %>" alt="" />
+    <a href="#" class="startPlayer" videoName="<%= productJson[productId]["video"] %>"></a>
   </div>
 </div>
 
 <div class="content-section">
-  <h1 class="name f-bold"><%= productJson[productId]["name"].split(" ")[0] %> <span class="color_9d"><%= productJson[productId]["name"].split(" ")[1] %></span></h1>
+  <h1 class="name f-bold"><%= productJson[productId]["name"].split(" ")[0] %> <span class="color_9d"><%= productJson[productId]["name"].split(" ").slice(1).join(" ") %></span></h1>
   <h2 class="modal"><%= productJson[productId]["sku"] %></h2>
   <h3 class="price">₹ <%= productJson[productId]["price"] %></h3>
   <div class="about">
-    <p class="color_9d f-bold p-heading">ABOUT THE RADO CENTRIX COLLECTION</p>
+    <p class="color_9d f-bold p-heading">ABOUT THE <%= productJson[productId]["name"] %></p>
     <p><%= productJson[productId]["description"] %></p>
   </div>
   <div class="specification">

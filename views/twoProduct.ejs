@@ -2,17 +2,18 @@
 			
       <div class="single-image">
 				<div class="img">
-					<img src="<%= productJson[productId1]["image"] %>" alt="" />
+					<img src="/images/<%= productJson[productId1]["image"] %>" width="150px" alt="" />
 				</div>
 				
 				<div class="convid-section">
 					<div class="modal-price">
-						<h1 class="name f-bold"><%= productJson[productId1]["name"].split(" ")[0] %> <span class="color_9d"><%= productJson[productId1]["name"].split(" ")[1] %></span></h1>
+						<h1 class="name f-bold"><%= productJson[productId1]["name"].split(" ")[0] %> <span class="color_9d"><%= productJson[productId1]["name"].split(" ").slice(1).join(" ") %></span></h1>
             <h2 class="modal"><%= productJson[productId1]["sku"] %></h2>
             <h3 class="price">₹ <%= productJson[productId1]["price"] %></h3>
 					</div>
 					<div class="video-section">
-						<img src="<%= productJson[productId1]["videoThumb"] %>" alt="" class="startPlayer" video="<%= productId1 %>" />
+						<img src="/images/<%= productJson[productId1]["videoThumb"] %>" alt="" class="startPlayer" video="<%= productId1 %>" />
+						<a href="#" class="startPlayer" videoName="<%= productJson[productId1]["video"] %>"></a>
 					</div>
 				</div>
 			</div>
@@ -20,17 +21,18 @@
       
       <div class="single-image">
 				<div class="img">
-					<img src="<%= productJson[productId2]["image"] %>" alt="" />
+					<img src="/images/<%= productJson[productId2]["image"] %>" width="150px" alt="" />
 				</div>
 				
 				<div class="convid-section">
 					<div class="modal-price">
-						<h1 class="name f-bold"><%= productJson[productId2]["name"].split(" ")[0] %> <span class="color_9d"><%= productJson[productId2]["name"].split(" ")[1] %></span></h1>
+						<h1 class="name f-bold"><%= productJson[productId2]["name"].split(" ")[0] %> <span class="color_9d"><%= productJson[productId2]["name"].split(" ").slice(1).join(" ") %></span></h1>
             <h2 class="modal"><%= productJson[productId2]["sku"] %></h2>
             <h3 class="price">₹ <%= productJson[productId2]["price"] %></h3>
 					</div>
 					<div class="video-section">
-						<img src="<%= productJson[productId2]["videoThumb"] %>" alt="" class="startPlayer" video="<%= productId2 %>" />
+						<img src="/images/<%= productJson[productId2]["videoThumb"] %>" alt="" />
+						<a href="#" class="startPlayer" videoName="<%= productJson[productId2]["video"] %>"></a>
 					</div>
 				</div>
 			</div>
