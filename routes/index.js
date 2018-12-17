@@ -150,12 +150,12 @@ router.get('/twoProduct/:productId1/:productId2', function(req, res, next) {
 router.get('/playVideo/:videoName/:width/:height', function(req, res, next) {
   console.log(req.params);
   var file = req.params.videoName;
-  var y2 = 1080;//req.params.height;
-  var x2 = 1920; //req.params.width;
+  var y2 = req.params.height;
+  var x2 = req.params.width;
   var x1 = 0;
   var y1 = 0;
   
-  var percentage = 10;
+  var percentage = 8;
   y2 = y2 - (y2 * percentage / 100); // 68
   
   // Check If file exist=

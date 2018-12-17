@@ -27,7 +27,8 @@ body{font-family: 'Montserrat', sans-serif;}
   top: 40px;
   left: 230px;
 }
-.content-section{width:70%;}
+#watch-content .content-section{float:none !important; margin:0; width:70% !important;}
+.content-section{width:45%; float:left; margin-left:2%;}
 .name{font-size:40px;}
 .modal{color:#808080;font-size:33px;margin:10px 0px 15px;}
 .price{font-size:30px;}
@@ -44,7 +45,7 @@ body{font-family: 'Montserrat', sans-serif;}
 
 /*twoImage-container*/
 .twoImage-container{display:flex;text-align:center;justify-content: space-around;-webkit-justify-content: space-around;}
-.single-image{width:40%;}
+.single-image{width:40%; float:left;}
 .modal-price{padding:10px;}
 .convid-section{border:1px solid #ccc;margin-top:-1px;}
 .modal-price .name{font-size:33px;}
@@ -55,7 +56,7 @@ body{font-family: 'Montserrat', sans-serif;}
 .full-content{margin:10px auto 20px;}
 .half-content{display:flex;}
 .half-content .store-image{width:50%;margin-right:20px;}
-.store-image .img{padding:10px;}
+.store-image .img{padding:10px; float:left;}
 p{line-height:24px;}
 .brand-available{margin:10px 0px;}
 .brand-available ul{margin-top:10px;}
