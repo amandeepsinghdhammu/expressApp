@@ -14,7 +14,7 @@ a,
 a[href^="tel:"]{color: #808080;text-decoration: none;}
 a:focus{outline: none;}
 /*---common style---*/
-.main-wrapper{background: url('img/main-wrapper-bg.jpg')no-repeat top center;background-size: cover;height: 100vh;}
+.main-wrapper{background: url('/images/main-wrapper-bg.jpg')no-repeat top center;background-size: cover;height: 100vh;}
 .header-main{background: linear-gradient(#000000, rgba(0, 0, 0, 0) 83%);height: 25vh;}
 .logo{margin: 0px auto;padding-top: 40px;width:241px;}
 .page-wrapper{background: #ffffff}
@@ -23,7 +23,7 @@ a:focus{outline: none;}
 .text-right{text-align: right;}
 
 /*--loader styling--*/
-.loader-wrapper{align-items: center;background: url('img/loadding-page-bg.jpg') no-repeat center center;background-size: cover;display: flex;height: 100vh;margin: 0px auto;width: 100%;}
+.loader-wrapper{align-items: center;background: url('/images/loadding-page-bg.jpg') no-repeat center center;background-size: cover;display: flex;height: 100vh;margin: 0px auto;width: 100%;}
 .welcome-pageLogo{margin: 0px auto;max-width: 358px;width: 80%;}
 
 /*--single product styling--*/
