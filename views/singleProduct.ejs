@@ -1,52 +1,145 @@
-<div class="img-video">
-  <div class="img">
-    <img src="/images/<%= productJson[productId]["image"] %>" alt="" />
-  </div>
-  
-  <div class="video-section">
-    <img src="/images/<%= productJson[productId]["videoThumb"] %>" alt="" />
-    <a href="#" class="startPlayer" videoName="<%= productJson[productId]["video"] %>"></a>
-  </div>
-</div>
+<style>
+	.main-wrapper{background-position: 0% 32%;height: 120px;}
+	.header-main {height: 100%;background: rgba(0,0,0,.3);}
+</style>
 
-<div class="content-section">
-  <h1 class="name f-bold"><%= productJson[productId]["name"].split(" ")[0] %> <span class="color_9d"><%= productJson[productId]["name"].split(" ").slice(1).join(" ") %></span></h1>
-  <h2 class="modal"><%= productJson[productId]["sku"] %></h2>
-  <h3 class="price">₹ <%= productJson[productId]["price"] %></h3>
-  <div class="about">
-    <p class="color_9d f-bold p-heading">ABOUT THE <%= productJson[productId]["name"] %></p>
-    <p><%= productJson[productId]["description"] %></p>
-  </div>
-  <div class="specification">
-    <div class="s-holder small">
-      <h3>MOVEMENT</h3>
-      <ul>
-        <li><span class="color_99">Features</span><%= productJson[productId]["movement"]["date"] %></li>
-        <li><span class="color_99">Movement</span><%= productJson[productId]["movement"]["movement"] %></li>
-      </ul>
-    </div>
-    <div class="s-holder large">
-      <h3>Case</h3>
-      <ul>
-        <li><span class="color_99">Case Size</span><%= productJson[productId]["case"]["size"] %></li>
-        <li><span class="color_99">Case Material</span><%= productJson[productId]["case"]["material"] %></li>
-        <li><span class="color_99">Case Shape</span><%= productJson[productId]["case"]["shape"] %></li>
-        <li><span class="color_99">Glass Material</span><%= productJson[productId]["case"]["glassMaterial"] %></li>
-      </ul>
-    </div>
-    <div class="s-holder small">
-      <h3>Dial</h3>
-      <ul>
-        <li><span class="color_99">Dial Colour</span><%= productJson[productId]["dial"]["color"] %></li>
-      </ul>
-    </div>
-    <div class="s-holder large">
-      <h3>Other</h3>
-      <ul>
-        <li><span class="color_99">Gender</span><%= productJson[productId]["other"]["gender"] %></li>
-        <li><span class="color_99">Water Resistance (m)</span><%= productJson[productId]["other"]["waterResistance"] %></li>
-        <li><span class="color_99">Warranty Period</span><%= productJson[productId]["other"]["warrantyPeriod"] %></li>
-      </ul>
-    </div>
-  </div>
-</div>
+<section class="single-pageContent">
+	<div class="product-specSection">
+		<div class="specSection-column product-gallery">
+			<img src="/images/<%= productJson[productId]["image"] %>" alt="<%= productJson[productId]["brandName"] %>"/>
+			<div class="product-btn text-center">
+				<a class="btn videoBtn startPlayer" href="#" videoName="<%= productJson[productId]["video"] %>" title="<%= productJson[productId]["brandName"] %>">Play Video</a>
+			</div>
+		</div>
+		<div class="specSection-column product-description">
+			<h1 class="product-name">
+				<span class="brand-name"><%= productJson[productId]["brandName"] %></span>
+				<span class="collection-name"><%= productJson[productId]["collectionName"] %></span>
+				<span class="modal-number"><%= productJson[productId]["sku"] %></span>
+			</h1>
+			<h2>Full specification</h2>
+			<ul class="product-spacification">
+				<% if(productJson[productId]["feature"] != undefined) { %>
+				<li>
+					<span class="specifiction">Features</span>
+					<span class="spec-description"><%= productJson[productId]["features"] %></span>
+				</li>
+				<% } %>
+				<% if(productJson[productId]["movement"] != undefined) { %>
+				<li>
+					<span class="specifiction">Movement</span>
+					<span class="spec-description"><%= productJson[productId]["movement"] %></span>
+				</li>
+				<% } %>
+				<% if(productJson[productId]["calibre"] != undefined) { %>
+				<li>
+					<span class="specifiction">Calibre</span>
+					<span class="spec-description"><%= productJson[productId]["calibre"] %></span>
+				</li>
+				<% } %>
+				<% if(productJson[productId]["caseSize"] != undefined) { %>
+				<li>
+					<span class="specifiction">Case Size</span>
+					<span class="spec-description"><%= productJson[productId]["caseSize"] %></span>
+				</li>
+				<% } %>
+				<% if(productJson[productId]["caseShape"] != undefined) { %>
+				<li>
+					<span class="specifiction">Case Shape</span>
+					<span class="spec-description"><%= productJson[productId]["caseShape"] %></span>
+				</li>
+				<% } %>
+				<% if(productJson[productId]["caseMaterial"] != undefined) { %>
+				<li>
+					<span class="specifiction">Case Material</span>
+					<span class="spec-description"><%= productJson[productId]["caseMaterial"] %></span>
+				</li>
+				<% } %>
+				<% if(productJson[productId]["caseBack"] != undefined) { %>
+				<li>
+					<span class="specifiction">Case Back</span>
+					<span class="spec-description"><%= productJson[productId]["caseBack"] %></span>
+				</li>
+				<% } %>
+				<% if(productJson[productId]["lugWidth"] != undefined) { %>
+				<li>
+					<span class="specifiction">Lug Width</span>
+					<span class="spec-description"><%= productJson[productId]["lugWidth"] %></span>
+				</li>
+				<% } %>
+				<% if(productJson[productId]["glassMaterial"] != undefined) { %>
+				<li>
+					<span class="specifiction">Glass Material</span>
+					<span class="spec-description"><%= productJson[productId]["glassMaterial"] %></span>
+				</li>
+				<% } %>
+				<% if(productJson[productId]["luminosity"] != undefined) { %>
+				<li>
+					<span class="specifiction">Luminosity</span>
+					<span class="spec-description"><%= productJson[productId]["luminosity"] %></span>
+				</li>
+				<% } %>
+				<% if(productJson[productId]["dialColor"] != undefined) { %>
+				<li>
+					<span class="specifiction">Dial Colour</span>
+					<span class="spec-description"><%= productJson[productId]["dialColor"] %></span>
+				</li>
+				<% } %>
+				<% if(productJson[productId]["hands"] != undefined) { %>
+				<li>
+					<span class="specifiction">Hands</span>
+					<span class="spec-description"><%= productJson[productId]["hands"] %></span>
+				</li>
+				<% } %>
+				<% if(productJson[productId]["indexes"] != undefined) { %>
+				<li>
+					<span class="specifiction">Indexes</span>
+					<span class="spec-description"><%= productJson[productId]["indexes"] %></span>
+				</li>
+				<% } %>
+				<% if(productJson[productId]["strapMaterial"] != undefined) { %>
+				<li>
+					<span class="specifiction">Strap Material</span>
+					<span class="spec-description"><%= productJson[productId]["strapMaterial"] %></span>
+				</li>
+				<% } %>
+				<% if(productJson[productId]["strapColor"] != undefined) { %>
+				<li>
+					<span class="specifiction">Strap Colour</span>
+					<span class="spec-description"><%= productJson[productId]["strapColor"] %></span>
+				</li>
+				<% } %>
+				<% if(productJson[productId]["claspType"] != undefined) { %>
+				<li>
+					<span class="specifiction">Clasp Type</span>
+					<span class="spec-description"><%= productJson[productId]["claspType"] %></span>
+				</li>
+				<% } %>
+				<% if(productJson[productId]["gender"] != undefined) { %>
+				<li>
+					<span class="specifiction">Gender</span>
+					<span class="spec-description"><%= productJson[productId]["gender"] %></span>
+				</li>
+				<% } %>
+				<% if(productJson[productId]["waterResistance"] != undefined) { %>
+				<li>
+					<span class="specifiction">Water Resistance (M)</span>
+					<span class="spec-description"><%= productJson[productId]["waterResistance"] %></span>
+				</li>
+				<% } %>
+				<% if(productJson[productId]["warrantyPeriod"] != undefined) { %>
+				<li>
+					<span class="specifiction">Warranty Period</span>
+					<span class="spec-description"><%= productJson[productId]["warrantyPeriod"] %></span>
+				</li>
+				<% } %>
+				<% if(productJson[productId]["limitedEdition"] != undefined) { %>
+				<li>
+					<span class="specifiction">Limited Edition</span>
+					<span class="spec-description"><%= productJson[productId]["limitedEdition"] %></span>
+				</li>
+				<% } %>
+			</ul>
+		</div>
+	</div>
+</section>

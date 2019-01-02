@@ -6,116 +6,102 @@ var router = express.Router();
 var player;
 var productJson = {
   2447508096 :  {
-     name : "RADO Centrix",
-     image : "watch-img.jpg",
-     video : "Rado-Centrix-Men's-watch-with-8-diamonds.mp4",
-     videoThumb : "thumb1.jpg",
-     sku : "R30934712",
-     price: "91,800",
-     description: "From day one Rado has turned visions into concrete realities. Pushing the boundaries of material technology and continually introducing the unexpected, Rado has gone from strength to strength in the field of fine Swiss timekeeping since 1957 and has produced one revolutionary watch after another.",
-     movement: {
-       features : "Date",
-       movement : "Quartz"
-     },
-     case : {
-       size : "38 mm",
-       material: "Steel",
-       shape: "Round",
-       glassMaterial: "Sapphire Crystal"
-     },
-     dial : {
-       color: "Black" 
-     },
-     other:{
-       gender: "Men",
-       waterResistance: "30",
-       warrantyPeriod: "2 Years"
-     }
+     brandName : "IWC",
+		 collectionName : "Pilots Mark XVIII",
+		 price: "2,65,000",
+     image : "iwc-iw327001.jpg",
+     video : "IW327001.mp4",
+     sku : "IW327001",
+		 features : "Date",
+		 movement : "Automatic",
+		 calibre : "30110",
+		 caseSize : "40 mm",
+		 caseShape: "Round",
+		 caseMaterial: "Steel",
+		 caseBack: "Closed Case Back",
+		 lugWidth: "20 mm",
+		 glassMaterial: "Sapphire Crystal",
+		 dialColor: "Black",
+		 hands: "Alpha",
+		 indexes: "Arabic Numerals",
+		 strapMaterial: "Leather",
+		 strapColor: "Black",
+		 gender: "Men",
+		 waterResistance: "60",
+		 warrantyPeriod: "2 Year"	 
   },
-  303848577 :  {
-     name : "OMEGA De Ville Prestige",
-     image : "omega-prestige.jpg",
-     video : "OMEGA-from-a-movement-to-a-brand-name.mp4",
-     videoThumb : "maxresdefault.jpg",  
-     sku : "424.55.37.20.52.002",
-     price: "18,06,600",
-     description: "Since its launch in 1967, the De Ville Collection by Omega has been synonymous with modern elegance and fashion. This collection has been a major example of the avant-garde watch making technology used by the brand. The first watch to be equipped with the exclusive Omega Co-Axial escapement in 1999 was a De Ville.",
-     movement: {
-       features : "Date",
-       movement : "Automatic"
-     },
-     case : {
-       size : "36.8 mm",
-       material: "Yellow Gold",
-       shape: "Round",
-       glassMaterial: "Sapphire Crystal"
-     },
-     dial : {
-       color: "Silver" 
-     },
-     other:{
-       gender: "Men",
-       waterResistance: "30",
-       warrantyPeriod: "5 Years"
-     }
+	303848577 :  {
+     brandName : "PANERAI",
+		 collectionName : "Radiomir 1940",
+		 price: "2,75,000",
+     image : "panerai-pam00620.jpg",
+     video : "PAM00620.mp4",
+     sku : "PAM00620",
+		 features : "Small Seconds",
+		 movement : "Automatic",
+		 calibre : "P 4000",
+		 caseSize : "42 mm",
+		 caseShape: "Round",
+		 caseMaterial: "Steel",
+		 caseBack: "See-through Case Back",
+		 lugWidth: "22 mm",
+		 glassMaterial: "Sapphire Crystal",
+		 dialColor: "Black",
+		 hands: "Stick",
+		 indexes: "Mixed",
+		 strapMaterial: "Leather",
+		 strapColor: "Black",
+		 gender: "Men",
+		 waterResistance: "100",
+		 warrantyPeriod: "2 Year"	 
   },
-  2462992513 :  {
-     name : "OMEGA De Ville Prestige",
-     image : "omega.jpg",
-     video : "OMEGA-from-a-movement-to-a-brand-name.mp4",
-     videoThumb : "maxresdefault.jpg",
-     sku : "424.13.33.20.53.001",
-     price: "2,11,500",
-     description: "Since its launch in 1967, the De Ville Collection by Omega has been synonymous with modern elegance and fashion. This collection has been a major example of the avant-garde watch making technology used by the brand. The first watch to be equipped with the exclusive Omega Co-Axial escapement in 1999 was a De Ville.",
-     movement: {
-       features : "Date",
-       movement : "Automatic"
-     },
-     case : {
-       size : "32.7 mm",
-       material: "Steel",
-       shape: "Round",
-       glassMaterial: "Sapphire Crystal"
-     },
-     dial : {
-       color: "Blue" 
-     },
-     other:{
-       gender: "Women",
-       waterResistance: "30",
-       warrantyPeriod: "5 Years"
-     }
+	2462992513 :  {
+     brandName : "BAUME & MERCIER",
+		 collectionName : "Clifton Club Indian Scout Edition",
+     price: "2,89,000",
+		 image : "baume-moa10402.jpg",
+     video : "MOA10402.mp4",
+     sku : "MOA10402",
+		 features : "Chronograph, Date, Tachymeter",
+		 movement : "Automatic",
+		 caseSize : "44 mm",
+		 caseShape: "Round",
+		 caseMaterial: "Steel",
+		 glassMaterial: "Sapphire Crystal",
+		 dialColor: "Grey",
+		 strapMaterial: "Calfskin",
+		 strapColor: "Brown",
+		 gender: "Men",
+		 waterResistance: "50",
+		 warrantyPeriod: "2 Year",
+		 limitedEdition: "Yes"
   },
   2462992516 :  {
-     name : "ORIS Aviation Artelier Calibre 111",
-     image : "oris.jpg",
-     video : "Oris-110th-Year-Celebration.mp4",
-     videoThumb : "oris-thumb.jpg",
-     sku : "01 111 7700 4065-SET 1 23 87FC",
-     price: "4,16,900",
-     description: "The machinery inside a watch that keeps things ticking is called the movement or a calibre. A synonym of size, the word ‘calibre’, first used as a watchmaking term in 1715, originally referred to the build of a watch movement—the layout, dimensions, shape and size of the wheels, barrels, bridges and so on.",
-     movement: {
-       features : "Date, Power Reserve Indicator, Small Seconds",
-       movement : "Manual Winding"
-     },
-     case : {
-       size : "43 mm",
-       material: "Steel",
-       shape: "Round",
-       glassMaterial: "Sapphire Crystal"
-     },
-     dial : {
-       color: "Blue" 
-     },
-     other:{
-       gender: "Men",
-       waterResistance: "30",
-       warrantyPeriod: "2 Years"
-     }
+     brandName : "JAEGER-LECOULTRE",
+		 collectionName : "Polaris",
+		 price: "2,86,000",
+     image : "jlc-q9008180.jpg",
+     video : "Q9008180.mp4",
+     sku : "Q9008180",
+		 movement : "Automatic",
+		 calibre : "898E/1",
+		 caseSize : "41 mm",
+		 caseShape: "Round",
+		 caseMaterial: "Steel",
+		 caseBack: "See-through Case Back",
+		 glassMaterial: "Sapphire Crystal",
+		 luminosity: "On Hands & Dial",
+		 dialColor: "Blue",
+		 hands: "Stick",
+		 indexes: "Mixed",
+		 strapMaterial: "Steel",
+		 strapColor: "Silver",
+		 claspType: "Folding Clasp",
+		 gender: "Men",
+		 waterResistance: "100",
+		 warrantyPeriod: "2 Year"
   }
 };
-    
-
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

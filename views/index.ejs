@@ -2,82 +2,109 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
     <title><%= title %></title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+	<style>
+		.main-content{background: #ffffff;bottom: 16%;left: 50%;margin-left: -600px;max-width: 1200px;position: absolute;width: 90%;}
+		.about-store{padding: 4.5% 5.3%;}
+		.about-content{align-items: center;display: flex;justify-content: space-between;position: relative;}
+		.about-content:after{background: #f4f4f4;content: "";height: 100%;right: 50%;top: 0;position: absolute;width: 1px;}
+		.about-storeColumn{max-width: 375px;width:100%;}
+		.about-storeColumn h2{color: #000000;font-size: 18px;font-weight: 600;letter-spacing: .5px;line-height: 28px;margin-bottom: 15px;text-transform: uppercase;}
+		.store-headWrap{align-items: center;display: flex;justify-content: space-between;}
+		.store-headWrap img{max-width: 106px;}
+		.footer{background: #ffffff;position: fixed;left: 0;bottom: 0;right: 0;padding: 20px 50px;}
+		.footer h2{color: #000000;font-size: 14px;font-weight: 700;letter-spacing: .5px;line-height: 28px;margin-bottom: 15px;text-align: center;text-transform: uppercase;}
+		.footer ul li{display: inline-block;margin-right: 30px;position: relative;}
+		.footer ul li:after{background: #808080;border-radius: 50%;content: "";height: 4px;right: -19px;top:10px;width: 4px;position: absolute;}
+		.footer ul li:last-child:after{content: none;}
+		@media (max-width:1366px){
+			.main-content{bottom: 26%;}
+		}
+		@media (max-width:1280px){
+			.main-content{bottom: 22%;}
+		}
+		@media (max-width:1024px){
+			.main-content{left: 5%;margin-left: 0;bottom: 25%;}
+		}
+		@media (max-width:768px){
+			.main-content{bottom: 20%;left: 15%;width: 70%;}
+			.about-store {padding: 65px;}
+			.about-content{display: block;}
+			.about-content:after{height: 1px;left: 0;margin-top: -5px;top: 50%;width:100%;}
+			.about-storeColumn {max-width: 100%;}
+			.store-headWrap img {order: 2;}
+			.about-storeColumn:last-child{margin-top: 90px;}
+		}
+		@media (max-width:767px){
+			.main-content{display:none;}
+		}
+	</style>
   </head>
   <body>
-    <div class="main-container">
-      <header class="logo-section">
-        <div class="wrapper">
-          <img src="/images/ethos-logo.svg" alt="logo" width="250px" />
-        </div>
-      </header>
-      <div class="wrapper">
-        <div id="initial-content">
-          <div class="full-content">
-            <p>Welcome to Ethos, We established in 2003, Ethos Watch Boutiques, India's largest luxury watch retailer started out with a single store in Chandigarh. Today, we have 44 stores across 16 cities in India, including three duty free stores at the Delhi, Mumbai and Bengaluru international airports. Spread across the major metros, our boutiques house the finest selection from over 60 of the world’s top luxury watch brands.</p>
-          </div>
-          
-          <div class="half-content">
-            <div class="store-image">
-              <div class="img">
-                <img src="/images/store-ahm.jpg" alt="">
-              </div>
-            </div>
-            
-            <div class="content-section">
-              <p class="color_9d f-bold p-heading">ETHOS WATCH BOUTIQUES</p>
-              <p>G8 &amp; G9, Ground Floor, <br>Ahmedabad One Mall, Near Vastrapur Lake, Vastrapur,<br> Ahmedabad - 380054, +91-79-40327655 </p>
-              <div class="brand-available">
-                <p class="fontBold"><strong>Brands Available</strong></p>
-                <ul class="watch-brands">
-                <li> Omega </li>
-                <li> Longines </li>
-                <li> Rado </li>
-                <li> Tag Heuer </li>
-                <li> Tissot </li>
-                <li> Movado </li>
-                <li>Victorinox </li>
-                <li>Citizen </li>
-                <li> Seiko </li>
-                <li> Sevenfriday </li>
-                <li> Frederique Constant </li>
-                <li> Raymond Weil </li>
-                <li> Montblanc </li>
-                </ul>
-              </div>
-              
-              <div class="store-head">
-                <p class="fontBold"><strong>Meet the store Head</strong></p>
-                
-                <div class="user_info">
-                  <div class="user_picWrap">
-                    <span class="user_pic">
-                        <img class="store-head-pic rounded-circle" src="/images/1495773117-EAL1.jpg">
-                    </span>
-                  </div>
-                  <div class="col">
-                    <span>Jignesh Patel</span>
-                    <p>+91 9825881573</p>
-                    <span><a class="color_40" href="mailto:jignesh.patel@ethoswatches.com?subject=Schedule%20An%20Appointment">jignesh.patel@ethoswatches.com</a></span>
-                  </div>
-                </div>
-                
-              </div>
-            </div>
-            
-          </div>
-        </div>  
-        <div id="watch-content" style="display:none;">
-        </div>  
-      </div>
-      <div class="footer" style="display:none;position:absolute;bottom:0px;background:#000;height:8%; width:100%; text-align:center;">
-        <button id="stopPlayer" style="margin-top:25px; padding:5px; cursor:pointer;">Close</button>
-      </div>
-    </div>
+  	<div class="page-wrapper">
+			<main class="main-wrapper">
+				<header class="header-main">
+					<div class="logo">
+						<img src="/images/ethos-logo.svg" alt="Ethos Watch Boutiques Logo" width="100%" />
+					</div>
+				</header>
+				<div id="watch-content" style="display:none;">
+				</div>
+				<div id="initial-content">
+					<section class="main-content">
+						<div class="about-store">
+							<div class="about-content">
+								<div class="about-storeColumn">
+									<h2>Ethos watch boutiques - summit</h2>
+									<p>G-14, Plot- A, Select Citywalk Mall, Saket District Centre,<br/>
+										New Delhi New Delhi - 110017<br/>
+										Tel : +91 11 40588700
+									</p>
+								</div>
+								<div class="about-storeColumn">
+									<div class="store-headWrap">
+										<img src="/images/store-head.jpg" alt="Store Head Image" width="100%"/>
+										<div class="store-head-text">
+											<h2>Meet the store head</h2>
+											<p>Jitender Kumar<br/>
+												+91 8527271479<br/>
+												jitender.kumar@ethossummit.com
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>	
+				<footer class="footer text-center">
+					<div class="">
+						<h2>–&nbsp;&nbsp;&nbsp;Brands available&nbsp;&nbsp;&nbsp;–</h2>
+						<ul>
+							<li><a href="">Panerai</a></li>
+							<li><a href="">Jaeger-LeCoultre</a></li>
+							<li><a href="">IWC</a></li>
+							<li><a href="">Baume & Mercier</a></li>
+							<li><a href="">Tag Heuer</a></li>
+							<li><a href="">Tissot</a></li>
+							<li><a href="">Movado</a></li>
+							<li><a href="">Victorinox</a></li>
+							<li><a href="">Citizen</a></li>
+							<li><a href="">Seiko</a></li>
+							<li><a href="">Sevenfriday</a></li>
+							<li><a href="">Frederique Constant</a></li>
+							<li><a href="">Raymond Weil</a></li>
+							<li><a href="">Montblanc</a></li>
+						</ul>
+					</div>
+				</footer>
+				<div class="footer" style="display:none;position:absolute;bottom:0px;background:#000;height:8%; width:100%; text-align:center;">
+					<button id="stopPlayer" style="margin-top:25px; padding:5px; cursor:pointer;">Close</button>
+				</div>
+			</main>
+		</div>
   </body>
   <script src="/javascripts/socket.io.js"></script>
   <script src="/javascripts/jquery-3.3.1.min.js"></script>
