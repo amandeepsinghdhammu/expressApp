@@ -78,29 +78,29 @@
 							</div>
 						</div>
 					</section>
+					<footer class="footer text-center">
+						<div class="">
+							<h2>–&nbsp;&nbsp;&nbsp;Brands available&nbsp;&nbsp;&nbsp;–</h2>
+							<ul>
+								<li><a href="">Panerai</a></li>
+								<li><a href="">Jaeger-LeCoultre</a></li>
+								<li><a href="">IWC</a></li>
+								<li><a href="">Baume & Mercier</a></li>
+								<li><a href="">Tag Heuer</a></li>
+								<li><a href="">Tissot</a></li>
+								<li><a href="">Movado</a></li>
+								<li><a href="">Victorinox</a></li>
+								<li><a href="">Citizen</a></li>
+								<li><a href="">Seiko</a></li>
+								<li><a href="">Sevenfriday</a></li>
+								<li><a href="">Frederique Constant</a></li>
+								<li><a href="">Raymond Weil</a></li>
+								<li><a href="">Montblanc</a></li>
+							</ul>
+						</div>
+					</footer>
 				</div>	
-				<footer class="footer text-center">
-					<div class="">
-						<h2>–&nbsp;&nbsp;&nbsp;Brands available&nbsp;&nbsp;&nbsp;–</h2>
-						<ul>
-							<li><a href="">Panerai</a></li>
-							<li><a href="">Jaeger-LeCoultre</a></li>
-							<li><a href="">IWC</a></li>
-							<li><a href="">Baume & Mercier</a></li>
-							<li><a href="">Tag Heuer</a></li>
-							<li><a href="">Tissot</a></li>
-							<li><a href="">Movado</a></li>
-							<li><a href="">Victorinox</a></li>
-							<li><a href="">Citizen</a></li>
-							<li><a href="">Seiko</a></li>
-							<li><a href="">Sevenfriday</a></li>
-							<li><a href="">Frederique Constant</a></li>
-							<li><a href="">Raymond Weil</a></li>
-							<li><a href="">Montblanc</a></li>
-						</ul>
-					</div>
-				</footer>
-				<div class="footer" style="display:none;position:absolute;bottom:0px;background:#000;height:8%; width:100%; text-align:center;">
+				<div class="footerBottom" style="display:none;position:absolute;bottom:0px;background:#000;height:8%; width:100%; text-align:center;">
 					<button id="stopPlayer" style="margin-top:25px; padding:5px; cursor:pointer;">Close</button>
 				</div>
 			</main>
@@ -193,14 +193,14 @@ var socket = io.connect('http://localhost:3000');
       });
       
       function hideContentBeforeVideo() {
-        $(".footer").show();
+        $(".footerBottom").show();
         $("body").css("background", "#000");
         $(".logo-section").hide();
         $(".wrapper").hide();
       }
       
       function showContentAfterVideo(){
-        $(".footer").hide();
+        $(".footerBottom").hide();
         $("body").css("background", "#fff");
         $(".logo-section").show();
         $(".wrapper").show();
