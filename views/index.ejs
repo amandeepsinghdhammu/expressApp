@@ -100,10 +100,10 @@
 						</div>
 					</footer>
 				</div>	
-				<div class="footerBottom" style="display:none;position:absolute;bottom:0px;background:#000;height:8%; width:100%; text-align:center;">
-					<button id="stopPlayer" style="margin-top:25px; padding:5px; cursor:pointer;">Close</button>
-				</div>
 			</main>
+			<div class="footerBottom" style="display:none;position:absolute;bottom:0px;background:#000;height:8%; width:100%; text-align:center;">
+                            <button id="stopPlayer" style="margin-top:25px; padding:5px; cursor:pointer;">Close</button>
+                        </div>
 		</div>
   </body>
   <script src="/javascripts/socket.io.js"></script>
@@ -194,6 +194,7 @@ var socket = io.connect('http://localhost:3000');
       
       function hideContentBeforeVideo() {
         $(".footerBottom").show();
+	$(".main-wrapper").hide();
         $("body").css("background", "#000");
         $(".logo-section").hide();
         $(".wrapper").hide();
@@ -201,13 +202,14 @@ var socket = io.connect('http://localhost:3000');
       
       function showContentAfterVideo(){
         $(".footerBottom").hide();
+	$(".main-wrapper").show();
         $("body").css("background", "#fff");
         $(".logo-section").show();
         $(".wrapper").show();
       }
       
       /*setTimeout(function(){
-        $.get("/singleProduct/2462992516", function(data) {
+        $.get("/twoProduct/2462992516/303848577", function(data) {
           $("#watch-content").html(data);
           $("#initial-content").hide();
           $("#watch-content").show();
