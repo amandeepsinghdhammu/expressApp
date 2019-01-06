@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-	<style>
+	<!--<style>
 		.main-content{background: #ffffff;bottom: 16%;left: 50%;margin-left: -600px;max-width: 1200px;position: absolute;width: 90%;}
 		.about-store{padding: 4.5% 5.3%;}
 		.about-content{align-items: center;display: flex;justify-content: space-between;position: relative;}
@@ -40,7 +40,7 @@
 		@media (max-width:767px){
 			.main-content{display:none;}
 		}
-	</style>
+	</style>-->
   </head>
   <body>
   	<div class="page-wrapper">
@@ -63,7 +63,7 @@
 										Tel : +91 11 40588700
 									</p>
 								</div>
-								<div class="about-storeColumn">
+								<div class="about-storeColumn store-Head">
 									<div class="store-headWrap">
 										<img src="/images/store-head.jpg" alt="Store Head Image" width="100%"/>
 										<div class="store-head-text">
@@ -76,6 +76,7 @@
 									</div>
 								</div>
 							</div>
+							<div class="clear"></div>
 						</div>
 					</section>
 					<footer class="footer text-center">
@@ -209,7 +210,7 @@ var socket = io.connect('http://localhost:3000');
       }
       
       /*setTimeout(function(){
-        $.get("/twoProduct/2462992516/303848577", function(data) {
+        $.get("/singleProduct/2447508096", function(data) {
           $("#watch-content").html(data);
           $("#initial-content").hide();
           $("#watch-content").show();
