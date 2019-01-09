@@ -8,7 +8,7 @@ var productJson = {
   2447508096 :  {
      brandName : "IWC",
 		 collectionName : "Pilots Mark XVIII",
-		 price: "2,65,000",
+		 price: "2,89,000",
      image : "iwc-iw327001.jpg",
      video : "IW327001.mp4",
      sku : "IW327001",
@@ -33,7 +33,7 @@ var productJson = {
 	303848577 :  {
      brandName : "PANERAI",
 		 collectionName : "Radiomir 1940",
-		 price: "2,75,000",
+		 price: "6,26,000",
      image : "panerai-pam00620.jpg",
      video : "PAM00620.mp4",
      sku : "PAM00620",
@@ -58,7 +58,7 @@ var productJson = {
 	2462992513 :  {
      brandName : "BAUME & MERCIER",
 		 collectionName : "Clifton Club Indian Scout Edition",
-     price: "2,89,000",
+     price: "2,86,000",
 		 image : "baume-moa10402.jpg",
      video : "MOA10402.mp4",
      sku : "MOA10402",
@@ -79,7 +79,7 @@ var productJson = {
   2462992516 :  {
      brandName : "JAEGER-LECOULTRE",
 		 collectionName : "Polaris",
-		 price: "2,86,000",
+		 price: "5,11,000",
      image : "jlc-q9008180.jpg",
      video : "Q9008180.mp4",
      sku : "Q9008180",
@@ -91,7 +91,7 @@ var productJson = {
 		 caseBack: "See-through Case Back",
 		 glassMaterial: "Sapphire Crystal",
 		 luminosity: "On Hands & Dial",
-		 dialColor: "Blue",
+		 dialColor: "Black",
 		 hands: "Stick",
 		 indexes: "Mixed",
 		 strapMaterial: "Steel",
